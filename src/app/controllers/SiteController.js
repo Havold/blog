@@ -1,13 +1,24 @@
+const { json } = require('express')
+const Course = require('../models/Course')
+
 class SiteController {
     // [GET] /
     search(req, res) {
-        res.render('search');
+        res.render('search')
     }
 
     // [GET] /search
     index(req, res) {
-        res.render('home');
+        Course.find({})
+            .then((course) => {
+                res.json(course)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        // res.render('home')
     }
 }
 
-module.exports = new SiteController();
+module.exports = new SiteController()
