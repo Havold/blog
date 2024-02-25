@@ -1,6 +1,6 @@
 const { json } = require('express')
 const Course = require('../models/Course')
-
+const { multipleMongooseToObject } = require('../../util/mongoose')
 class SiteController {
     // [GET] /
     search(req, res) {
@@ -8,14 +8,15 @@ class SiteController {
     }
 
     // [GET] /search
-    index(req, res) {
+    index(req, res, next) {
         Course.find({})
-            .then((course) => {
-                res.json(course)
+            .then((courses) => {
+                // courses = courses.map((course) => course.toObject())
+                res.render('home', {
+                    courses: multipleMongooseToObject(courses),
+                })
             })
-            .catch((err) => {
-                console.log(err)
-            })
+            .catch(next)
 
         // res.render('home')
     }

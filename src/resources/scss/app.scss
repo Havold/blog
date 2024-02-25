@@ -1,9 +1,113 @@
 @import 'variables';
 
-h1 {
-    color: $red-color;
+.red {
+    background-color: $red-color;
+    border-color: $red-color;
+}
+
+.red:hover {
+    background-color: $red-color;
+    border-color: $red-color;
+    opacity: 70%;
 }
 
 h2 {
     color: green;
+}
+
+.button {
+    text-decoration: none;
+    background-color: white;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    min-width: 120px;
+    transition: opacity 0.2s ease;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+.button--blue {
+    background-color: #0d6efd;
+}
+
+.button--disabled {
+    opacity: 0.5 !important;
+}
+
+.button--disabled:hover {
+    cursor: default;
+}
+
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 32px));
+    }
+    to {
+        opacity: 100;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+#toast-box {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+}
+
+.toast-box {
+    display: flex;
+    align-items: center;
+    border-left: 4px solid;
+    padding: 0px 2px;
+    background-color: #ffff;
+    animation:
+        slide-left ease 0.5s,
+        fade-out linear 0.3s 2s forwards;
+}
+
+.toast--success {
+    border-color: #47d864;
+}
+
+.toast--success .toast__icon {
+    color: #47d864;
+}
+
+.toast__icon {
+    font-size: 30px;
+    padding: 12px;
+}
+
+.toast__body {
+    min-width: 320px;
+    flex-grow: 1;
+    padding: 12px;
+}
+
+.toast__title {
+    font-weight: bold;
+}
+
+.toast__close {
+    font-size: 30px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
 }
