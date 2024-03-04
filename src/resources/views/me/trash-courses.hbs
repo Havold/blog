@@ -8,7 +8,7 @@
                 <th scope='col'>#</th>
                 <th scope='col'>Tên khóa học</th>
                 <th scope='col'>Trình độ</th>
-                <th scope='col' colspan='2'>Thời gian tạo</th>
+                <th scope='col' colspan='2'>Thời gian xóa</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +17,7 @@
                     <th scope='row'>{{sum @index 1}}</th>
                     <td>{{this.name}}</td>
                     <td>{{this.level}}</td>
-                    <td>{{this.createdAt}}</td>
+                    <td>{{this.deletedAt}}</td>
                     <td>
                         <a
                             href=''
@@ -106,7 +106,7 @@
         e.preventDefault(); // Ngăn tính năng reset mặc định của thẻ a làm mất đi id
         //console.log($(e.target).attr('data-bs-id')) //cách lấy id từ jquey
         var courseId = $(e.target).attr('data-bs-id');
-        restoreForm.action = '/courses/' + courseId + '/restore?_method=PATCH'
+        restoreForm.action = '/courses/' + courseId + '/restore?_method=PATCH';
         restoreForm.submit();
     })
 </script>

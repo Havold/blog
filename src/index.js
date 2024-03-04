@@ -21,7 +21,7 @@ app.use(
 app.use(express.json()) // Middleware để xử lý dữ liệu được gửi từ JavaScript, XMLHttpRequest, fetch, axios,...
 
 //HTTP logger
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
 // using Middleware method-overrate để chuyển method form submit từ POST
 // sang method ta cần (vd: PUT, PATCH)
