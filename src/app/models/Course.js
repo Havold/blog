@@ -13,7 +13,7 @@ const Course = new Schema(
         image: { type: String },
         videoId: { type: String, require: true },
         level: { type: String },
-        slug: { type: String, slug: 'name', unique: true },
+        slug: { type: String, slug: 'name'},
     },
     {
         timestamps: true,
